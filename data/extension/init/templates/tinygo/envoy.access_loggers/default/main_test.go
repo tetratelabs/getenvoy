@@ -31,6 +31,6 @@ func TestAccessLogger_OnLog(t *testing.T) {
 
 	// Check the Envoy logs.
 	logs := host.GetLogs(types.LogLevelInfo)
-	require.Contains(t, logs, ":path = /this/is/path")
+	require.Contains(t, logs, ":path = /this/is/not/a/path")
 	require.Contains(t, logs, "message = this is my log message")
 }
