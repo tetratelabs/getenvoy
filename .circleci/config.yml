@@ -40,7 +40,8 @@ jobs:
     steps:
       - checkout
       - run: make init
-      - run: go run cmd/getenvoy/main.go fetch standard:1.11.0
+      # prefetch latest so that tests run faster
+      - run: go run cmd/getenvoy/main.go fetch standard:1.17.1
       - run: make test.ci GO_TEST_EXTRA_OPTS="-timeout 60s"
       - run:
           name: "Measure test coverage (for now, on a subset of tests)"
