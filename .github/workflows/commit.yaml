@@ -14,37 +14,50 @@ on:
 
 jobs:
   check:
+    name: "Run CI checks on Linux"
     runs-on: ubuntu-latest
     container: golang:1.16  # match go.mod version
     steps:
-      - uses: styfle/cancel-workflow-action@0.4.1
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Install Go"
+        uses: actions/setup-go@v2
         with:
-          access_token: ${{ github.token }}
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v2
-        with:
-          path: ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-      - run: make check
+          go-version: '1.16.2'
+
+      - name: "Init on first use"
+        run: make init
+
+      - name: "Run checks"
+        run: make init
 
   test:
+    name: "Run unit tests on Linux"
     runs-on: ubuntu-latest
-    container: golang:1.16  # match go.mod version
     steps:
-      - uses: styfle/cancel-workflow-action@0.4.1
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Install Go"
+        uses: actions/setup-go@v2
         with:
-          access_token: ${{ github.token }}
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v2
-        with:
-          path: ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-      - run: make init
-      # prefetch latest so that tests run faster
+          go-version: '1.16.2'
+
+      - name: "Init on first use"
+        run: make init
+
+      - name: "Prefetch latest envoy"
       - run: go run cmd/getenvoy/main.go fetch standard:1.17.1
-      - run: make test.ci GO_TEST_EXTRA_OPTS="-timeout 60s"
-      - run: make coverage GO_COVERAGE_EXTRA_OPTS="-p 1"
-      - uses: actions/upload-artifact@v2
+
+      - name: "Run tests"
+        run: make test.ci GO_TEST_EXTRA_OPTS="-timeout 60s"
+
+      - name: "Generate coverage report"
+        run: make coverage GO_COVERAGE_EXTRA_OPTS="-p 1"
+
+      - name: "Upload coverage report"
+        uses: actions/upload-artifact@v2
         with:
           name: coverage-report
           path: build/coverage
