@@ -51,21 +51,25 @@ jobs:
       #   run: go run cmd/getenvoy/main.go fetch standard:1.17.1
 
       - name: "Disk usage"
+        if: ${{ always() }}
         run: |
           df -h
           sudo du -hd0 $HOME
           sudo du -hd0 /tmp
           mount
           go env
+          tree /home/runner/.getenvoy/builds/
 
       - name: "Run tests"
         run: make test GO_TEST_EXTRA_OPTS="-timeout 60s -v"
 
       - name: "Disk usage"
+        if: ${{ always() }}
         run: |
           df -h
           sudo du -hd0 $HOME
           sudo du -hd0 /tmp
+          tree /home/runner/.getenvoy/builds/
 
       # - name: "Generate coverage report"
       #   run: make coverage GO_COVERAGE_EXTRA_OPTS="-p 1"
