@@ -203,7 +203,7 @@ format: $(GOIMPORTS) ## Format all Go code
 	@for f in `find . -name '*.go'`; do \
 	    awk '/^import \($$/,/^\)$$/{if($$0=="")next}{print}' $$f > /tmp/fmt; \
 	    mv /tmp/fmt $$f; \
-	    $(GOIMPORTS) -w -local github.com/tetrateio/getenvoy $$f; \
+	    $(GOIMPORTS) -w -local github.com/tetratelabs/getenvoy $$f; \
 	done
 
 .PHONY: clean
