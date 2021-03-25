@@ -30,7 +30,7 @@ jobs:
         run: make init
 
       - name: "Run checks"
-        run: make init
+        run: make check
 
   test:
     name: "Run unit tests on Linux"
