@@ -53,7 +53,7 @@ jobs:
       - name: "Disk usage"
         run: |
           df -h
-          du -hd1 /home
+          du -hd1 $HOME
           du -hd1 /tmp
           mount
           go env
@@ -64,7 +64,7 @@ jobs:
       - name: "Disk usage"
         run: |
           df -h
-          du -hd1 /home
+          du -hd1 $HOME
           du -hd1 /tmp
 
       # - name: "Generate coverage report"
