@@ -14,15 +14,15 @@ require (
 	github.com/envoyproxy/go-control-plane v0.9.5
 	github.com/ghodss/yaml v1.0.0
 	github.com/go-ole/go-ole v1.2.4 // indirect
-	github.com/golang/protobuf v1.3.5
+	github.com/golang/protobuf v1.4.2
 	github.com/gotestyourself/gotestyourself v2.2.0+incompatible // indirect
 	github.com/manifoldco/promptui v0.0.0-00010101000000-000000000000
 	github.com/mattn/go-isatty v0.0.12
 	github.com/mattn/go-shellwords v1.0.10
 	github.com/mholt/archiver v3.1.1+incompatible
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/onsi/ginkgo v1.12.1
-	github.com/onsi/gomega v1.10.0
+	github.com/onsi/ginkgo v1.15.2
+	github.com/onsi/gomega v1.10.1
 	github.com/opencontainers/image-spec v1.0.1
 	github.com/opencontainers/selinux v1.8.0 // indirect
 	github.com/otiai10/copy v1.2.0
@@ -36,6 +36,7 @@ require (
 	github.com/tetratelabs/getenvoy-package v0.0.0-20190730071641-da31aed4333e
 	github.com/tetratelabs/log v0.0.0-20190710134534-eb04d1e84fb8
 	github.com/tetratelabs/multierror v1.1.0
+	golang.org/x/sys v0.0.0-20210324051608-47abb6519492 // indirect
 	gotest.tools v2.2.0+incompatible
 	istio.io/api v0.0.0-20200227213531-891bf31f3c32
 	istio.io/istio v0.0.0-20200304114959-c3c353285578
@@ -51,3 +52,6 @@ replace github.com/hashicorp/consul => github.com/hashicorp/consul v1.3.1
 replace github.com/manifoldco/promptui => github.com/yskopets/promptui v0.7.1-0.20200429230902-361491009c11
 
 replace github.com/rakyll/statik => github.com/yskopets/statik v0.1.8-0.20200501213002-c2d8dcc79889
+
+// more recent versions conflict with istio's gogo proto
+replace github.com/golang/protobuf => github.com/golang/protobuf v1.3.5
