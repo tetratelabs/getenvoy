@@ -16,7 +16,6 @@ package builtin
 
 import (
 	"github.com/pkg/errors"
-
 	extensionconfig "github.com/tetratelabs/getenvoy/pkg/extension/workspace/config/extension"
 	builtinconfig "github.com/tetratelabs/getenvoy/pkg/extension/workspace/config/toolchain/builtin"
 	dockerutil "github.com/tetratelabs/getenvoy/pkg/util/docker"

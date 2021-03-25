@@ -18,10 +18,9 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"path/filepath"
 	"testing"
-
-	"os"
 
 	"github.com/mholt/archiver"
 	"github.com/stretchr/testify/assert"

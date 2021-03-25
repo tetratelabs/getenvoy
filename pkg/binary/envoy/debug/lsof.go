@@ -22,7 +22,6 @@ import (
 	"syscall"
 
 	"github.com/shirou/gopsutil/process"
-
 	"github.com/tetratelabs/getenvoy/pkg/binary"
 	"github.com/tetratelabs/getenvoy/pkg/binary/envoy"
 	"github.com/tetratelabs/log"

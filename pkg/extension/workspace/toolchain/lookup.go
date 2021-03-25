@@ -16,7 +16,6 @@ package toolchain
 
 import (
 	"github.com/pkg/errors"
-
 	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/config"
 	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/model"
 	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/toolchain/builtin"

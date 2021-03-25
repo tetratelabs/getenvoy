@@ -17,17 +17,13 @@ package envoy
 import (
 	"archive/tar"
 	"errors"
+	"fmt"
+	"io"
+	"io/ioutil"
 	"net/http"
+	"os"
 	"path/filepath"
 	"strings"
-
-	"os"
-
-	"fmt"
-
-	"io/ioutil"
-
-	"io"
 
 	"github.com/mholt/archiver"
 	"github.com/schollz/progressbar/v2"
@@ -112,7 +108,7 @@ func fetchEnvoy(dst, src string) error {
 }
 
 func doDownload(dst, src string) (string, error) {
-	// #nosec -> src destination can be anywhere by design
+	// #nosec -> src can be anywhere by design
 	resp, err := transport.Get(src)
 	if err != nil {
 		return "", err
@@ -124,6 +120,7 @@ func doDownload(dst, src string) (string, error) {
 	}
 
 	tarball := filepath.Join(dst, "envoy.tar"+filepath.Ext(src))
+	// #nosec -> dst can be anywhere by design
 	f, err := os.OpenFile(tarball, os.O_CREATE|os.O_WRONLY, 0600)
 	if err != nil {
 		return "", err

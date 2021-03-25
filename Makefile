@@ -12,6 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Make sure we pick up any local overrides.
+-include .makerc
+
+# bingo manages go binaries needed for building the project
+include .bingo/Variables.mk
+
 ENVOY = standard:1.11.1
 HUB ?= docker.io/getenvoy
 GETENVOY_TAG ?= dev
@@ -175,3 +181,32 @@ $(foreach lang,$(BUILDERS_LANGS),$(eval $(call GEN_PULL_EXTENSION_BUILDER_IMAGE_
 
 .PHONY: builders.pull
 builders.pull: $(foreach lang,$(BUILDERS_LANGS), pull/builder/$(lang))
+
+##@ Code quality and integrity
+
+LINT_OPTS ?= --timeout 5m
+.PHONY: lint
+# generate must be called while generated source is still used
+lint: generate $(GOLANGCI_LINT) $(SHFMT) $(LICENSER) .golangci.yml  ## Run the linters
+	@echo "--- lint ---"
+	@$(SHFMT) -d .
+	@$(LICENSER) verify -r .
+	@$(GOLANGCI_LINT) run $(LINT_OPTS) --config .golangci.yml
+
+# The goimports tool does not arrange imports in 3 blocks if there are already more than three blocks.
+# To avoid that, before running it, we collapse all imports in one block, then run the formatter.
+.PHONY: format
+format: $(GOIMPORTS) ## Format all Go code
+	@echo "--- format ---"
+	@$(LICENSER) apply -r "Tetrate"
+	@find . -type f -name '*.go' | xargs gofmt -s -w
+	@for f in `find . -name '*.go'`; do \
+	    awk '/^import \($$/,/^\)$$/{if($$0=="")next}{print}' $$f > /tmp/fmt; \
+	    mv /tmp/fmt $$f; \
+	    $(GOIMPORTS) -w -local github.com/tetrateio/getenvoy $$f; \
+	done
+
+.PHONY: clean
+clean:   ## Clean all binaries
+	@echo "--- $@ ---"
+	go clean -testcache

@@ -32,18 +32,16 @@ jobs:
       GOMAXPROCS: "3"
     steps:
       - checkout
-      - run: make init
-      - run: ./ci/install-lint
-      - run: ./ci/lint
-          
+      - run: make lint
+
   test:
     executor: builder
     resource_class: medium+
     steps:
       - checkout
       - run: make init
-      - run: ./ci/install-envoy
-      - run: ./ci/test
+      - run: go run cmd/getenvoy/main.go fetch standard:1.11.0
+      - run: make test.ci GO_TEST_EXTRA_OPTS="-timeout 60s"
       - run:
           name: "Measure test coverage (for now, on a subset of tests)"
           command: make coverage GO_COVERAGE_EXTRA_OPTS="-p 1"

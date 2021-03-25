@@ -19,7 +19,6 @@ import (
 
 	"github.com/mattn/go-isatty"
 	"github.com/spf13/cobra"
-
 	"github.com/tetratelabs/getenvoy/pkg/cmd/extension/build"
 	"github.com/tetratelabs/getenvoy/pkg/cmd/extension/clean"
 	"github.com/tetratelabs/getenvoy/pkg/cmd/extension/example"

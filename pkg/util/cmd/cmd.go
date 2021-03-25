@@ -16,7 +16,6 @@ package cmd
 
 import (
 	"github.com/spf13/cobra"
-
 	cmderrors "github.com/tetratelabs/getenvoy/pkg/util/cmd/errors"
 )
 

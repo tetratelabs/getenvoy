@@ -17,11 +17,10 @@ package builtin
 import (
 	"path"
 
-	"github.com/pkg/errors"
-	"github.com/tetratelabs/multierror"
-
 	"github.com/docker/distribution/reference"
+	"github.com/pkg/errors"
 	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/config"
+	"github.com/tetratelabs/multierror"
 )
 
 // NewToolchainConfig returns a new built-in toolchain config.

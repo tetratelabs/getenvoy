@@ -27,7 +27,6 @@ import (
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-
 	commonerrors "github.com/tetratelabs/getenvoy/pkg/errors"
 	ioutil "github.com/tetratelabs/getenvoy/pkg/util/io"
 )

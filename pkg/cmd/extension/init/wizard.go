@@ -18,7 +18,6 @@ import (
 	"fmt"
 
 	"github.com/manifoldco/promptui"
-
 	uiutil "github.com/tetratelabs/getenvoy/pkg/util/ui"
 )
 

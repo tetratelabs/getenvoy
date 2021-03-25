@@ -23,14 +23,11 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/pkg/errors"
-
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
-
-	"github.com/tetratelabs/getenvoy-package/api"
-
 	"github.com/mholt/archiver"
+	"github.com/pkg/errors"
+	"github.com/tetratelabs/getenvoy-package/api"
 )
 
 const (

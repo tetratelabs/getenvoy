@@ -4,7 +4,7 @@ We welcome contributions from the community. Please read the following guideline
 
 ## Coding Style
 
-- The code is linted using a relatively stringent [golang-ci config](./.golangci.yml). To run this linter (and a few others) use the `ci/format` script. To verify, you can run the `ci/lint` script.
+- The code is linted using a relatively stringent [golang-ci config](./.golangci.yml). To run this linter (and a few others) use run `make format`. To verify, you can run `make lint`.
 - We follow standard Go table-driven tests and use the [`testify/assert`](https://github.com/stretchr/testify#assert-package) library to assert correctness. To verify all tests pass, you can run the `ci/test` script.
 
 ## DCO

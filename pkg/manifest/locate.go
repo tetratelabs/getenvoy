@@ -21,7 +21,6 @@ import (
 	"strings"
 
 	"github.com/pkg/errors"
-
 	"github.com/tetratelabs/getenvoy-package/api"
 	"github.com/tetratelabs/getenvoy/pkg/types"
 	"github.com/tetratelabs/log"

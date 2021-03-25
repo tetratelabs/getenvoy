@@ -22,12 +22,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/tetratelabs/log"
-
-	"github.com/tetratelabs/multierror"
-
 	"github.com/tetratelabs/getenvoy/pkg/binary"
 	"github.com/tetratelabs/getenvoy/pkg/binary/envoy"
+	"github.com/tetratelabs/log"
+	"github.com/tetratelabs/multierror"
 )
 
 var adminAPIPaths = map[string]string{
@@ -68,6 +66,7 @@ func retrieveAdminAPIData(r binary.Runner) error {
 			multiErr = multierror.Append(multiErr, fmt.Errorf("received %v from /%v ", resp.StatusCode, path))
 			continue
 		}
+		// #nosec -> r.DebugStore() is allowed to be anywhere
 		f, err := os.OpenFile(filepath.Join(r.DebugStore(), file), os.O_CREATE|os.O_WRONLY, 0600)
 		if err != nil {
 			multiErr = multierror.Append(multiErr, err)

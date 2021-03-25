@@ -19,10 +19,8 @@ import (
 	"path/filepath"
 
 	"github.com/pkg/errors"
-
 	scaffold "github.com/tetratelabs/getenvoy/pkg/extension/init"
 	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/config/extension"
-
 	osutil "github.com/tetratelabs/getenvoy/pkg/util/os"
 )
 

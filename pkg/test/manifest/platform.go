@@ -18,7 +18,6 @@ import (
 	"strings"
 
 	"github.com/pkg/errors"
-
 	"github.com/tetratelabs/getenvoy-package/api"
 )
 

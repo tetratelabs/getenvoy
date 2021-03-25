@@ -17,7 +17,6 @@ package example
 import (
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
-
 	workspaces "github.com/tetratelabs/getenvoy/pkg/extension/workspace"
 	examples "github.com/tetratelabs/getenvoy/pkg/extension/workspace/example"
 	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/model"

@@ -16,7 +16,6 @@ package model
 
 import (
 	"github.com/pkg/errors"
-
 	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/config"
 	exampleconfig "github.com/tetratelabs/getenvoy/pkg/extension/workspace/config/example"
 )

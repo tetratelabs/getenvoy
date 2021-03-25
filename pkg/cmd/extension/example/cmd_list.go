@@ -19,7 +19,6 @@ import (
 	"text/tabwriter"
 
 	"github.com/spf13/cobra"
-
 	workspaces "github.com/tetratelabs/getenvoy/pkg/extension/workspace"
 )
 

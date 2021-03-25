@@ -19,7 +19,6 @@ import (
 	"text/template"
 
 	"github.com/pkg/errors"
-
 	"github.com/tetratelabs/getenvoy/pkg/extension/manager"
 )
 

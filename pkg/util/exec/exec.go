@@ -21,11 +21,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/tetratelabs/log"
-
 	commonerrors "github.com/tetratelabs/getenvoy/pkg/errors"
 	ioutil "github.com/tetratelabs/getenvoy/pkg/util/io"
 	osutil "github.com/tetratelabs/getenvoy/pkg/util/os"
+	"github.com/tetratelabs/log"
 )
 
 var (

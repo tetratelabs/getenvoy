@@ -26,12 +26,10 @@ import (
 	"text/template"
 
 	"github.com/pkg/errors"
-	"github.com/tetratelabs/multierror"
-
 	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/config/extension"
-
 	osutil "github.com/tetratelabs/getenvoy/pkg/util/os"
 	scaffoldutil "github.com/tetratelabs/getenvoy/pkg/util/scaffold"
+	"github.com/tetratelabs/multierror"
 )
 
 // ScaffoldOpts represents configuration options supported by Scaffold().

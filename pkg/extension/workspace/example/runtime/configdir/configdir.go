@@ -22,7 +22,6 @@ import (
 
 	envoybootstrap "github.com/envoyproxy/go-control-plane/envoy/config/bootstrap/v3"
 	"github.com/pkg/errors"
-
 	"github.com/tetratelabs/getenvoy/pkg/extension/manager"
 	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/example/envoy/template"
 	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/example/envoy/util"
@@ -194,7 +193,7 @@ func (d *configDir) writeFile(fileName string, data []byte) error {
 	if err := osutil.EnsureDirExists(filepath.Dir(outputFile)); err != nil {
 		return err
 	}
-	if err := ioutil.WriteFile(outputFile, data, 0644); err != nil {
+	if err := ioutil.WriteFile(outputFile, data, 0600); err != nil {
 		return errors.Wrapf(err, "failed to write config file to %q", outputFile)
 	}
 	return nil
