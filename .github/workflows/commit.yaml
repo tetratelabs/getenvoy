@@ -48,7 +48,7 @@ jobs:
         run: make init
 
       - name: "Prefetch latest envoy"
-      - run: go run cmd/getenvoy/main.go fetch standard:1.17.1
+        run: go run cmd/getenvoy/main.go fetch standard:1.17.1
 
       - name: "Run tests"
         run: make test.ci GO_TEST_EXTRA_OPTS="-timeout 60s"
