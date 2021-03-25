@@ -21,7 +21,7 @@ executors:
       - image: registry:2
 
 jobs:
-  lint:
+  check:
     executor: builder
     resource_class: medium+
     environment:
@@ -32,7 +32,7 @@ jobs:
       GOMAXPROCS: "3"
     steps:
       - checkout
-      - run: make lint
+      - run: make check
 
   test:
     executor: builder
@@ -54,5 +54,5 @@ workflows:
   version: 2
   commit:
     jobs:
-      - lint
+      - check
       - test

@@ -206,6 +206,22 @@ format: $(GOIMPORTS) ## Format all Go code
 	    $(GOIMPORTS) -w -local github.com/tetratelabs/getenvoy $$f; \
 	done
 
+
+# Enforce go version matches what's in go.mod when running `make check` assuming the following:
+# * 'go version' returns output like "go version go1.16 darwin/amd64"
+# * go.mod contains a line like "go 1.16"
+EXPECTED_GO_VERSION_PREFIX := "go version go$(shell sed -ne '/^go /s/.* //gp' go.mod )"
+GO_VERSION := $(shell go version)
+
+.PHONY: check
+check:  ## CI blocks merge until this passes. If this fails, run "make check" locally and commit the difference.
+# case statement because /bin/sh cannot do prefix comparison, awk is awkward and assuming /bin/bash is brittle
+	@case "$(GO_VERSION)" in $(EXPECTED_GO_VERSION_PREFIX)* ) ;; * ) \
+		echo "Expected 'go version' to start with $(EXPECTED_GO_VERSION_PREFIX), but it didn't: $(GO_VERSION)"; \
+		exit 1; \
+	esac
+	$(MAKE) lint
+
 .PHONY: clean
 clean:   ## Clean all binaries
 	@echo "--- $@ ---"
