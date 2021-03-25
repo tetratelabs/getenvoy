@@ -53,8 +53,8 @@ jobs:
       - name: "Disk usage"
         run: |
           df -h
-          du -hd1 $HOME
-          du -hd1 /tmp
+          sudo du -hd0 $HOME
+          sudo du -hd1 /tmp
           mount
           go env
 
@@ -64,8 +64,8 @@ jobs:
       - name: "Disk usage"
         run: |
           df -h
-          du -hd1 $HOME
-          du -hd1 /tmp
+          sudo du -hd0 $HOME
+          sudo du -hd1 /tmp
 
       # - name: "Generate coverage report"
       #   run: make coverage GO_COVERAGE_EXTRA_OPTS="-p 1"
