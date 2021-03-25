@@ -214,7 +214,7 @@ EXPECTED_GO_VERSION_PREFIX := "go version go$(shell sed -ne '/^go /s/.* //gp' go
 GO_VERSION := $(shell go version)
 
 .PHONY: check
-check:  ## CI blocks merge until this passes. If this fails, run "make check" locally and commit the difference.
+check: generate ## CI blocks merge until this passes. If this fails, run "make check" locally and commit the difference.
 # case statement because /bin/sh cannot do prefix comparison, awk is awkward and assuming /bin/bash is brittle
 	@case "$(GO_VERSION)" in $(EXPECTED_GO_VERSION_PREFIX)* ) ;; * ) \
 		echo "Expected 'go version' to start with $(EXPECTED_GO_VERSION_PREFIX), but it didn't: $(GO_VERSION)"; \
