@@ -54,7 +54,7 @@ jobs:
         run: |
           df -h
           sudo du -hd0 $HOME
-          sudo du -hd1 /tmp
+          sudo du -hd0 /tmp
           mount
           go env
 
@@ -65,7 +65,7 @@ jobs:
         run: |
           df -h
           sudo du -hd0 $HOME
-          sudo du -hd1 /tmp
+          sudo du -hd0 /tmp
 
       # - name: "Generate coverage report"
       #   run: make coverage GO_COVERAGE_EXTRA_OPTS="-p 1"
