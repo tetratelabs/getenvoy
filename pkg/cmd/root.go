@@ -20,12 +20,13 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
+	"github.com/tetratelabs/log"
+
 	"github.com/tetratelabs/getenvoy/pkg/cmd/extension"
 	"github.com/tetratelabs/getenvoy/pkg/common"
 	"github.com/tetratelabs/getenvoy/pkg/manifest"
 	osutil "github.com/tetratelabs/getenvoy/pkg/util/os"
 	"github.com/tetratelabs/getenvoy/pkg/version"
-	"github.com/tetratelabs/log"
 )
 
 // globalOpts represents options that affect all getenvoy sub-commands.

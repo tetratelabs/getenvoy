@@ -22,10 +22,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/tetratelabs/getenvoy/pkg/binary"
-	"github.com/tetratelabs/getenvoy/pkg/binary/envoy"
 	"github.com/tetratelabs/log"
 	"github.com/tetratelabs/multierror"
+
+	"github.com/tetratelabs/getenvoy/pkg/binary"
+	"github.com/tetratelabs/getenvoy/pkg/binary/envoy"
 )
 
 var adminAPIPaths = map[string]string{

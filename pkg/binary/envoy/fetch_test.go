@@ -24,6 +24,7 @@ import (
 
 	"github.com/mholt/archiver"
 	"github.com/stretchr/testify/assert"
+
 	"github.com/tetratelabs/getenvoy/pkg/manifest"
 )
 

@@ -30,6 +30,7 @@ import (
 	"github.com/otiai10/copy"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
+
 	"github.com/tetratelabs/getenvoy/pkg/cmd"
 	"github.com/tetratelabs/getenvoy/pkg/manifest"
 	testcontext "github.com/tetratelabs/getenvoy/pkg/test/cmd/extension"

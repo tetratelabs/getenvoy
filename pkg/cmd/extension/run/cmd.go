@@ -19,6 +19,7 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
+
 	"github.com/tetratelabs/getenvoy/pkg/cmd/extension/build"
 	"github.com/tetratelabs/getenvoy/pkg/cmd/extension/common"
 	examplecmd "github.com/tetratelabs/getenvoy/pkg/cmd/extension/example"

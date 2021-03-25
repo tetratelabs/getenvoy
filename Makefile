@@ -220,7 +220,14 @@ check:  ## CI blocks merge until this passes. If this fails, run "make check" lo
 		echo "Expected 'go version' to start with $(EXPECTED_GO_VERSION_PREFIX), but it didn't: $(GO_VERSION)"; \
 		exit 1; \
 	esac
-	$(MAKE) lint
+	@$(MAKE) lint
+	@$(MAKE) format
+	@go mod tidy
+	@if [ ! -z "`git status -s`" ]; then \
+		echo "The following differences will fail CI until committed:"; \
+		git diff; \
+		exit 1; \
+	fi
 
 .PHONY: clean
 clean:   ## Clean all binaries

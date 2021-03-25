@@ -19,8 +19,9 @@ import (
 
 	"github.com/docker/distribution/reference"
 	"github.com/pkg/errors"
-	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/config"
 	"github.com/tetratelabs/multierror"
+
+	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/config"
 )
 
 // NewToolchainConfig returns a new built-in toolchain config.

@@ -16,6 +16,7 @@ package example
 
 import (
 	"github.com/pkg/errors"
+
 	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/model"
 )
 

@@ -21,6 +21,7 @@ import (
 	"sync"
 
 	"github.com/rakyll/statik/fs"
+
 	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/config/extension"
 
 	// force execution of auto generated code

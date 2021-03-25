@@ -21,6 +21,7 @@ import (
 	. "github.com/onsi/ginkgo/extensions/table"
 	. "github.com/onsi/gomega"
 	"github.com/spf13/cobra"
+
 	scaffold "github.com/tetratelabs/getenvoy/pkg/extension/init"
 	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/config/extension"
 	uiutil "github.com/tetratelabs/getenvoy/pkg/util/ui"

@@ -18,8 +18,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/config/extension"
 	"github.com/tetratelabs/multierror"
+
+	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/config/extension"
 )
 
 // templateSource represents a source of extension templates.

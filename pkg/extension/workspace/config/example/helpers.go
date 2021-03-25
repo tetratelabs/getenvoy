@@ -16,9 +16,10 @@ package example
 
 import (
 	"github.com/pkg/errors"
+	"github.com/tetratelabs/multierror"
+
 	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/config"
 	"github.com/tetratelabs/getenvoy/pkg/types"
-	"github.com/tetratelabs/multierror"
 )
 
 // NewExampleDescriptor returns a new example descriptor instance.

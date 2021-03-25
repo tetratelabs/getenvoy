@@ -18,6 +18,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/ginkgo/extensions/table"
 	. "github.com/onsi/gomega"
+
 	"github.com/tetratelabs/getenvoy/pkg/extension/manager"
 	"github.com/tetratelabs/getenvoy/pkg/extension/workspace/config/extension"
 	. "github.com/tetratelabs/getenvoy/pkg/extension/workspace/example/envoy/template"
